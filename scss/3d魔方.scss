@@ -1,0 +1,103 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  &,
+  body {
+    height: 100vh;
+  }
+}
+
+body {
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+  transform-style: preserve-3d;
+}
+
+#target {
+  width: 1000px;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+  background: white;
+  cursor: crosshair;
+  perspective: 1000px;
+}
+
+#drag-container {
+  transform-style: preserve-3d;
+  //   display: flex;
+  left: 50%;
+  top: 50%;
+  margin: auto;
+  position: absolute;
+  //   height: 100%;
+  //   width: 100%;
+  #spin-container {
+    transform-style: preserve-3d;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: rotateX(-10deg) translate(-50%, -50%);
+    // img {
+    //   width: 100%;
+    //   height: 100%;
+    //   object-fit: cover;
+    // }
+    img,
+    video {
+      display: block;
+      box-sizing: border-box;
+      position: absolute;
+      left: 0;
+      top: 0;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      // border: 4px solid white;
+      line-height: 200px;
+      font-size: 50px;
+      text-align: center;
+      box-shadow: 0 0 8px #fff;
+      -webkit-box-reflect: below 10px
+        linear-gradient(transparent, transparent, #0005);
+      &:hover {
+        box-shadow: 0 0 8px #fffd;
+        -webkit-box-reflect: below 10px
+          linear-gradient(transparent, transparent, #0007);
+      }
+
+      // @for $index from 1 to 7 {
+      //         &:nth-child(#{$index}) {
+      //             transform: rotateY(#{$index*360/6}deg) translateZ(500px)
+      //         }
+      // }
+    }
+    p {
+      color: black;
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
+  }
+  @keyframes spin-revert {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(-360deg);
+    }
+  }
+}

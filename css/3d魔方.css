@@ -1,0 +1,86 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html,
+html body {
+  height: 100vh;
+}
+
+body {
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+  transform-style: preserve-3d;
+}
+
+#target {
+  width: 1000px;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+  background: white;
+  cursor: crosshair;
+  perspective: 1000px;
+}
+
+#drag-container {
+  transform-style: preserve-3d;
+  left: 50%;
+  top: 50%;
+  margin: auto;
+  position: absolute;
+}
+#drag-container #spin-container {
+  transform-style: preserve-3d;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: rotateX(-10deg) translate(-50%, -50%);
+}
+#drag-container #spin-container img,
+#drag-container #spin-container video {
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  line-height: 200px;
+  font-size: 50px;
+  text-align: center;
+  box-shadow: 0 0 8px #fff;
+  -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
+}
+#drag-container #spin-container img:hover,
+#drag-container #spin-container video:hover {
+  box-shadow: 0 0 8px #fffd;
+  -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0007);
+}
+#drag-container #spin-container p {
+  color: black;
+}
+@keyframes spin {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+@keyframes spin-revert {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-360deg);
+  }
+}
+
+/*# sourceMappingURL=3d%E9%AD%94%E6%96%B9.css.map */
